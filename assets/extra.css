@@ -1,0 +1,87 @@
+/* extra.css - Giao dien site tai lieu theo thuong hieu Snail.
+   Mau chep tu mvp/shared-styles/_tokens.scss (theme Aurora Ribbon, dang dung
+   chung cho landing va web-app). Doi mau thuong hieu thi doi o _tokens.scss
+   truoc roi chep lai cac gia tri o day. Khong sua file sinh trong build/. */
+
+:root {
+  /* --accent-grad (light): dai ruy bang cua logo */
+  --snail-ribbon: linear-gradient(90deg, #f8386a 0%, #d62ba2 34%, #7b3fd0 66%, #2f5ae0 100%);
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #3559e0;          /* --accent */
+  --md-primary-fg-color--light: #5f7de8;
+  --md-primary-fg-color--dark: #2b47b8;    /* --accent-ink */
+  --md-primary-bg-color: #ffffff;          /* --accent-contrast */
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.72);
+  /* hong sen chi de nhan (dai ruy bang); hanh dong va link giu indigo */
+  --md-accent-fg-color: #2b47b8;
+  --md-accent-fg-color--transparent: rgba(53, 89, 224, 0.1);  /* --accent-soft */
+  --md-typeset-a-color: #2b47b8;
+  --md-default-fg-color: #17172b;          /* --text */
+}
+
+[data-md-color-scheme="slate"] {
+  --snail-ribbon: linear-gradient(90deg, #fb5c85 0%, #e04fb4 34%, #9160e0 66%, #5b7cf0 100%);
+  --md-hue: 238;
+  --md-default-bg-color: #101018;          /* --bg (dark) */
+  --md-primary-fg-color: #1a1b28;          /* --surface-solid (dark) */
+  --md-primary-fg-color--light: #2a2c40;
+  --md-primary-fg-color--dark: #101018;
+  --md-primary-bg-color: #f0f0f8;          /* --text (dark) */
+  --md-primary-bg-color--light: rgba(240, 240, 248, 0.7);
+  --md-accent-fg-color: #a4b6ff;           /* --accent-ink (dark) */
+  --md-accent-fg-color--transparent: rgba(123, 150, 255, 0.16);
+  --md-typeset-a-color: #a4b6ff;
+}
+
+/* Dai ruy bang mong tren dinh header: dau hieu thuong hieu duy nhat, khong to mau nen. */
+.md-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--snail-ribbon);
+}
+
+/* Logo mau (gradient xanh) dat tren nen trang de khong chim vao header indigo. */
+.md-header__button.md-logo img {
+  height: 1.5rem;
+  width: auto;
+  padding: 0.15rem;
+  border-radius: 0.45rem;
+  background: #ffffff;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+}
+
+/* Tai lieu nhieu bang: chu nho hon mot bac de bang rong khong bi cuon ngang som. */
+.md-typeset table:not([class]) {
+  font-size: 0.74rem;
+}
+
+/* Khoi "Nguồn" (site.show_source_path): gon, mau trung tinh. */
+.md-typeset .admonition.quote {
+  font-size: 0.7rem;
+  border-left-width: 2px;
+}
+.md-typeset .quote > .admonition-title {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+/* The section o trang chu */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.8rem;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-primary-fg-color);
+}
